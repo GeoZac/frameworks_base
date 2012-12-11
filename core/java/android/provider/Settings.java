@@ -5181,6 +5181,15 @@ public final class Settings {
          @Readable
          public static final String VOLUME_KEY_CURSOR_CONTROL = "volume_key_cursor_control";
 
+        /**
+         * Setting to determine whether or not to display arrow keys on navbar.
+         *    0 - Hide menu arrow keys
+         *    1 - Show menu arrow keys
+         * @hide
+         */
+        @Readable
+        public static final String NAVIGATION_BAR_MENU_ARROW_KEYS = "navigation_bar_menu_arrow_keys";
+
         /***************************
          * AICP System Settings end
          ***************************/
@@ -5201,6 +5210,7 @@ public final class Settings {
         public static final Map<String, Integer> AICP_SYSTEM_SETTINGS_VALIDATORS = new ArrayMap<>();
         static {
             AICP_SYSTEM_SETTINGS_VALIDATORS.put(VOLUME_KEY_CURSOR_CONTROL, ANY_INTEGER_VALIDATOR);
+            AICP_SYSTEM_SETTINGS_VALIDATORS.put(NAVIGATION_BAR_MENU_ARROW_KEYS, BOOLEAN_VALIDATOR);
         }
 
         /**
