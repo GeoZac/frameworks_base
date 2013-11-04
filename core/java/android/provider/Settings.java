@@ -5413,6 +5413,21 @@ public final class Settings {
         @SuppressLint("NoSettingsProvider")
          public static final String QS_TILES_VIBRATE = "qs_vibrate";
 
+        /**
+         * Control the type of rotation which can be performed using the accelerometer
+         * if ACCELEROMETER_ROTATION is enabled.
+         * Value is a bitwise combination of
+         * 1 = 0 degrees (portrait)
+         * 2 = 90 degrees (left)
+         * 4 = 180 degrees (inverted portrait)
+         * 8 = 270 degrees (right)
+         * Setting to 0 is effectively orientation lock
+         * @hide
+         */
+        @Readable
+        @SuppressLint("NoSettingsProvider")
+        public static final String ACCELEROMETER_ROTATION_ANGLES = "accelerometer_rotation_angles";
+
         /***************************
          * AICP System Settings end
          ***************************/
@@ -5459,6 +5474,7 @@ public final class Settings {
             AICP_SYSTEM_SETTINGS_VALIDATORS.put(QS_FOOTER_SHOW_USER, BOOLEAN_VALIDATOR);
             AICP_SYSTEM_SETTINGS_VALIDATORS.put(QS_FOOTER_SHOW_POWER_MENU, BOOLEAN_VALIDATOR);
             AICP_SYSTEM_SETTINGS_VALIDATORS.put(QS_TILES_VIBRATE, BOOLEAN_VALIDATOR);
+            AICP_SYSTEM_SETTINGS_VALIDATORS.put(ACCELEROMETER_ROTATION_ANGLES, ANY_INTEGER_VALIDATOR);
         }
 
         /**
