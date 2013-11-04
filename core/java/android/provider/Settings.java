@@ -3363,6 +3363,8 @@ public final class Settings {
 
             // At one time in System, then Global, but now back in Secure
             MOVED_TO_SECURE.add(Secure.INSTALL_NON_MARKET_APPS);
+
+            MOVED_TO_SECURE.add(Secure.VOLUME_LINK_NOTIFICATION);
         }
 
         @UnsupportedAppUsage(maxTargetSdk = Build.VERSION_CODES.R, trackingBug = 170729553)
@@ -10243,6 +10245,12 @@ public final class Settings {
         //@Readable
         //public static final String LOCKSCREEN_BATTERY_INFO = "lockscreen_battery_info";
 
+        /**
+         * Boolean value whether to link ringtone and notification volume
+         * @hide
+         */
+        public static final String VOLUME_LINK_NOTIFICATION = "volume_link_notification";
+
         /***************************
          * AICP Secure Settings end
          ***************************/
@@ -10262,7 +10270,7 @@ public final class Settings {
          */
         public static final Map<String, Integer> AICP_SECURE_SETTINGS_VALIDATORS = new ArrayMap<>();
         static {
-            //AICP_SECURE_SETTINGS_VALIDATORS.put(LOCKSCREEN_BATTERY_INFO, ANY_INTEGER_VALIDATOR);
+            AICP_SECURE_SETTINGS_VALIDATORS.put(VOLUME_LINK_NOTIFICATION, BOOLEAN_VALIDATOR);
         }
 
         /**
