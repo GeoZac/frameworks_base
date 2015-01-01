@@ -5405,6 +5405,14 @@ public final class Settings {
         @SuppressLint("NoSettingsProvider")
         public static final String QS_FOOTER_SHOW_POWER_MENU = "qs_footer_show_power_menu";
 
+        /** Whether to vibrate when quick settings tile is pressed.
+          *
+          * @hide
+          */
+        @Readable
+        @SuppressLint("NoSettingsProvider")
+         public static final String QS_TILES_VIBRATE = "qs_vibrate";
+
         /***************************
          * AICP System Settings end
          ***************************/
@@ -5450,6 +5458,7 @@ public final class Settings {
             AICP_SYSTEM_SETTINGS_VALIDATORS.put(QS_FOOTER_SHOW_EDIT, BOOLEAN_VALIDATOR);
             AICP_SYSTEM_SETTINGS_VALIDATORS.put(QS_FOOTER_SHOW_USER, BOOLEAN_VALIDATOR);
             AICP_SYSTEM_SETTINGS_VALIDATORS.put(QS_FOOTER_SHOW_POWER_MENU, BOOLEAN_VALIDATOR);
+            AICP_SYSTEM_SETTINGS_VALIDATORS.put(QS_TILES_VIBRATE, BOOLEAN_VALIDATOR);
         }
 
         /**
