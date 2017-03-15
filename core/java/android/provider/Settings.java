@@ -6237,6 +6237,11 @@ public final class Settings {
          */
         public static final String PULSE_ON_NEW_TRACKS = "pulse_on_new_tracks";
 
+        /**
+         * @hide
+         */
+        public static final String ROAMING_INDICATOR_ICON = "roaming_indicator_icon";
+
         /***************************
          * AICP System Settings end
          ***************************/
@@ -6519,6 +6524,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(CAMERA_LAUNCH);
             PRIVATE_SETTINGS.add(AUTHORIZATION_RIPPLE_EFFECT);
             PRIVATE_SETTINGS.add(PULSE_ON_NEW_TRACKS);
+            PRIVATE_SETTINGS.add(ROAMING_INDICATOR_ICON);
         }
 
         /**
