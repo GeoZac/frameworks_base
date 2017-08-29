@@ -4641,17 +4641,28 @@ public class StatusBar extends SystemUI implements DemoMode,
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.DOUBLE_TAP_SLEEP_LOCKSCREEN),
                     false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.DOUBLE_TAP_SLEEP_GESTURE),
+                    false, this, UserHandle.USER_ALL);
         }
 
         @Override
         public void onChange(boolean selfChange, Uri uri) {
             super.onChange(selfChange, uri);
+            final ContentResolver resolver = mContext.getContentResolver();
             if (uri.equals(Settings.System.getUriFor(
                     Settings.System.DOUBLE_TAP_SLEEP_LOCKSCREEN))) {
-                setLockscreenDoubleTapToSleep(Settings.System.getIntForUser(
-                        mContext.getContentResolver(),
+                setDoubleTapToSleepLockscreen(Settings.System.getIntForUser(
+                        resolver,
                         Settings.System.DOUBLE_TAP_SLEEP_LOCKSCREEN,
-                        false,
+                        0,
+                        UserHandle.USER_CURRENT) != 0);
+            } else if (uri.equals(Settings.System.getUriFor(
+                    Settings.System.DOUBLE_TAP_SLEEP_GESTURE))) {
+                setDoubleTapToSleep(Settings.System.getIntForUser(
+                        resolver,
+                        Settings.System.DOUBLE_TAP_SLEEP_GESTURE,
+                        0,
                         UserHandle.USER_CURRENT) != 0);
             }
         }
@@ -4661,9 +4672,19 @@ public class StatusBar extends SystemUI implements DemoMode,
         }
     }
 
-    private void setLockscreenDoubleTapToSleep(boolean enabled) {
+    private void setDoubleTapToSleepLockscreen(boolean enabled) {
         if (mNotificationPanelViewController != null) {
-            mNotificationPanelViewController.setLockscreenDoubleTapToSleep(enabled);
+            mNotificationPanelViewController.setDoubleTapToSleepLockscreen(enabled);
+        }
+    }
+
+    private void setDoubleTapToSleep(boolean enabled) {
+        // statusbar double tap to sleep
+        if (mNotificationPanelViewController != null) {
+            mNotificationPanelViewController.setDoubleTapToSleep(enabled);
+        }
+        if (mNotificationShadeWindowViewController != null) {
+            mNotificationShadeWindowViewController.setDoubleTapToSleep(enabled);
         }
     }
 

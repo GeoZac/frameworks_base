@@ -5437,6 +5437,14 @@ public final class Settings {
         public static final String DOUBLE_TAP_SLEEP_LOCKSCREEN =
                 "double_tap_sleep_lockscreen";
 
+        /**
+         *  Enable statusbar double tap gesture on to put device to sleep
+         * @hide
+         */
+        @Readable
+        @SuppressLint("NoSettingsProvider")
+        public static final String DOUBLE_TAP_SLEEP_GESTURE = "double_tap_sleep_gesture";
+
         /***************************
          * AICP System Settings end
          ***************************/
@@ -5485,6 +5493,7 @@ public final class Settings {
             AICP_SYSTEM_SETTINGS_VALIDATORS.put(QS_TILES_VIBRATE, BOOLEAN_VALIDATOR);
             AICP_SYSTEM_SETTINGS_VALIDATORS.put(ACCELEROMETER_ROTATION_ANGLES, ANY_INTEGER_VALIDATOR);
             AICP_SYSTEM_SETTINGS_VALIDATORS.put(DOUBLE_TAP_SLEEP_LOCKSCREEN, BOOLEAN_VALIDATOR);
+            AICP_SYSTEM_SETTINGS_VALIDATORS.put(DOUBLE_TAP_SLEEP_GESTURE, BOOLEAN_VALIDATOR);
         }
 
         /**
