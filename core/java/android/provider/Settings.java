@@ -5428,6 +5428,15 @@ public final class Settings {
         @SuppressLint("NoSettingsProvider")
         public static final String ACCELEROMETER_ROTATION_ANGLES = "accelerometer_rotation_angles";
 
+        /**
+         * Double tap on lockscreen to sleep
+         * @hide
+         */
+        @Readable
+        @SuppressLint("NoSettingsProvider")
+        public static final String DOUBLE_TAP_SLEEP_LOCKSCREEN =
+                "double_tap_sleep_lockscreen";
+
         /***************************
          * AICP System Settings end
          ***************************/
@@ -5475,6 +5484,7 @@ public final class Settings {
             AICP_SYSTEM_SETTINGS_VALIDATORS.put(QS_FOOTER_SHOW_POWER_MENU, BOOLEAN_VALIDATOR);
             AICP_SYSTEM_SETTINGS_VALIDATORS.put(QS_TILES_VIBRATE, BOOLEAN_VALIDATOR);
             AICP_SYSTEM_SETTINGS_VALIDATORS.put(ACCELEROMETER_ROTATION_ANGLES, ANY_INTEGER_VALIDATOR);
+            AICP_SYSTEM_SETTINGS_VALIDATORS.put(DOUBLE_TAP_SLEEP_LOCKSCREEN, BOOLEAN_VALIDATOR);
         }
 
         /**
