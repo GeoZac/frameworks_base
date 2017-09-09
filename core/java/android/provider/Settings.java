@@ -5178,8 +5178,9 @@ public final class Settings {
          * 2 - Volume up/down moves cursor right/left
          * @hide
         */
-         @Readable
-         public static final String VOLUME_KEY_CURSOR_CONTROL = "volume_key_cursor_control";
+        @Readable
+        @SuppressLint("NoSettingsProvider")
+        public static final String VOLUME_KEY_CURSOR_CONTROL = "volume_key_cursor_control";
 
         /**
          * Setting to determine whether or not to display arrow keys on navbar.
@@ -5188,7 +5189,16 @@ public final class Settings {
          * @hide
          */
         @Readable
+        @SuppressLint("NoSettingsProvider")
         public static final String NAVIGATION_BAR_MENU_ARROW_KEYS = "navigation_bar_menu_arrow_keys";
+
+        /**
+         * Whether to show the battery info on the lockscreen while charging
+         * @hide
+         */
+        @Readable
+        @SuppressLint("NoSettingsProvider")
+        public static final String LOCKSCREEN_BATTERY_INFO = "lockscreen_battery_info";
 
         /***************************
          * AICP System Settings end
@@ -5211,6 +5221,7 @@ public final class Settings {
         static {
             AICP_SYSTEM_SETTINGS_VALIDATORS.put(VOLUME_KEY_CURSOR_CONTROL, ANY_INTEGER_VALIDATOR);
             AICP_SYSTEM_SETTINGS_VALIDATORS.put(NAVIGATION_BAR_MENU_ARROW_KEYS, BOOLEAN_VALIDATOR);
+            AICP_SYSTEM_SETTINGS_VALIDATORS.put(LOCKSCREEN_BATTERY_INFO, BOOLEAN_VALIDATOR);
         }
 
         /**
