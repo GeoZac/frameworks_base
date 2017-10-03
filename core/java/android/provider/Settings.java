@@ -6392,6 +6392,11 @@ public final class Settings {
          */
         public static final String RIGHT_VERTICAL_BACK_SWIPE_APP_ACTIVITY_ACTION = "right_vertical_back_swipe_app_activity_action";
 
+        /**
+         * @hide
+         */
+        public static final String AICP_SHOW_BATTERY_IMAGE = "status_bar_show_battery_image";
+
         /***************************
          * AICP System Settings end
          ***************************/
