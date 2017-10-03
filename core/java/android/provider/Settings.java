@@ -5445,6 +5445,42 @@ public final class Settings {
         @SuppressLint("NoSettingsProvider")
         public static final String DOUBLE_TAP_SLEEP_GESTURE = "double_tap_sleep_gesture";
 
+        /**
+         * Whether to show the battery bar
+         * @hide
+         */
+        @Readable
+        @SuppressLint("NoSettingsProvider")
+        public static final String STATUSBAR_BATTERY_BAR = "statusbar_battery_bar";
+
+        /**
+         * @hide
+         */
+        @Readable
+        @SuppressLint("NoSettingsProvider")
+        public static final String STATUSBAR_BATTERY_BAR_COLOR = "statusbar_battery_bar_color";
+
+        /**
+         * @hide
+         */
+        @Readable
+        @SuppressLint("NoSettingsProvider")
+        public static final String STATUSBAR_BATTERY_BAR_THICKNESS = "statusbar_battery_bar_thickness";
+
+        /**
+         * @hide
+         */
+        @Readable
+        @SuppressLint("NoSettingsProvider")
+        public static final String STATUSBAR_BATTERY_BAR_STYLE = "statusbar_battery_bar_style";
+
+        /**
+         * @hide
+         */
+        @Readable
+        @SuppressLint("NoSettingsProvider")
+        public static final String STATUSBAR_BATTERY_BAR_ANIMATE = "statusbar_battery_bar_animate";
+
         /***************************
          * AICP System Settings end
          ***************************/
@@ -5494,6 +5530,11 @@ public final class Settings {
             AICP_SYSTEM_SETTINGS_VALIDATORS.put(ACCELEROMETER_ROTATION_ANGLES, ANY_INTEGER_VALIDATOR);
             AICP_SYSTEM_SETTINGS_VALIDATORS.put(DOUBLE_TAP_SLEEP_LOCKSCREEN, BOOLEAN_VALIDATOR);
             AICP_SYSTEM_SETTINGS_VALIDATORS.put(DOUBLE_TAP_SLEEP_GESTURE, BOOLEAN_VALIDATOR);
+            AICP_SYSTEM_SETTINGS_VALIDATORS.put(STATUSBAR_BATTERY_BAR, ANY_INTEGER_VALIDATOR);
+            AICP_SYSTEM_SETTINGS_VALIDATORS.put(STATUSBAR_BATTERY_BAR_COLOR, ANY_INTEGER_VALIDATOR);
+            AICP_SYSTEM_SETTINGS_VALIDATORS.put(STATUSBAR_BATTERY_BAR_THICKNESS, ANY_INTEGER_VALIDATOR);
+            AICP_SYSTEM_SETTINGS_VALIDATORS.put(STATUSBAR_BATTERY_BAR_STYLE, ANY_INTEGER_VALIDATOR);
+            AICP_SYSTEM_SETTINGS_VALIDATORS.put(STATUSBAR_BATTERY_BAR_ANIMATE, ANY_INTEGER_VALIDATOR);
         }
 
         /**
