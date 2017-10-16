@@ -5136,6 +5136,12 @@ public final class Settings {
          * @hide
          */
         public static final String QS_CARRIER_TEXT = "qs_carrier_text";
+        
+        /**	
+         * Whether to control brightness from status bar
+	     * @hide	
+         */
+        public static final String STATUS_BAR_BRIGHTNESS_CONTROL = "status_bar_brightness_control";
 
         /**
         * Whether to change the transparency of the qs panel
@@ -5479,6 +5485,10 @@ public final class Settings {
 
             // Pocket mode handler.
             PRIVATE_SETTINGS.add(POCKET_JUDGE);
+            
+            //Statusbar brightness control
+            PRIVATE_SETTINGS.add(STATUS_BAR_BRIGHTNESS_CONTROL);
+            
         }
 
         /**
