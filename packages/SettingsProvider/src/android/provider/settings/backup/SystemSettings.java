@@ -248,5 +248,6 @@ public class SystemSettings {
         Settings.System.AUTHORIZATION_RIPPLE_EFFECT,
         Settings.System.PULSE_ON_NEW_TRACKS,
         Settings.System.ROAMING_INDICATOR_ICON,
+        Settings.System.SHOW_LTE_FOURGEE,
     };
 }
