@@ -5360,6 +5360,51 @@ public final class Settings {
         @SuppressLint("NoSettingsProvider")
         public static final String BACK_GESTURE_HAPTIC = "back_gesture_haptic";
 
+        /**
+         * Show Settings icon in QS Footer
+         * @hide
+         */
+        /** @hide */
+        @Readable
+        @SuppressLint("NoSettingsProvider")
+        public static final String QS_FOOTER_SHOW_SETTINGS = "qs_footer_show_settings";
+
+        /**
+         * Show Running Services icon in QS Footer.
+         * @hide
+         */
+        /** @hide */
+        @Readable
+        @SuppressLint("NoSettingsProvider")
+        public static final String QS_FOOTER_SHOW_SERVICES = "qs_footer_show_services";
+
+        /**
+         * Show Edit icon in QS Footer.
+         * @hide
+         */
+        /** @hide */
+        @Readable
+        @SuppressLint("NoSettingsProvider")
+        public static final String QS_FOOTER_SHOW_EDIT = "qs_footer_show_edit";
+
+        /**
+         * Show User switcher icon in QS Footer.
+         * @hide
+         */
+        /** @hide */
+        @Readable
+        @SuppressLint("NoSettingsProvider")
+        public static final String QS_FOOTER_SHOW_USER = "qs_footer_show_user";
+
+        /**
+         * Show power menu icon in QS Footer.
+         * @hide
+         */
+        /** @hide */
+        @Readable
+        @SuppressLint("NoSettingsProvider")
+        public static final String QS_FOOTER_SHOW_POWER_MENU = "qs_footer_show_power_menu";
+
         /***************************
          * AICP System Settings end
          ***************************/
@@ -5400,6 +5445,11 @@ public final class Settings {
             AICP_SYSTEM_SETTINGS_VALIDATORS.put(OMNI_SYSTEM_PROXI_CHECK_ENABLED, BOOLEAN_VALIDATOR);
             AICP_SYSTEM_SETTINGS_VALIDATORS.put(ALERT_SLIDER_NOTIFICATIONS, BOOLEAN_VALIDATOR);
             AICP_SYSTEM_SETTINGS_VALIDATORS.put(BACK_GESTURE_HAPTIC, BOOLEAN_VALIDATOR);
+            AICP_SYSTEM_SETTINGS_VALIDATORS.put(QS_FOOTER_SHOW_SETTINGS, BOOLEAN_VALIDATOR);
+            AICP_SYSTEM_SETTINGS_VALIDATORS.put(QS_FOOTER_SHOW_SERVICES, BOOLEAN_VALIDATOR);
+            AICP_SYSTEM_SETTINGS_VALIDATORS.put(QS_FOOTER_SHOW_EDIT, BOOLEAN_VALIDATOR);
+            AICP_SYSTEM_SETTINGS_VALIDATORS.put(QS_FOOTER_SHOW_USER, BOOLEAN_VALIDATOR);
+            AICP_SYSTEM_SETTINGS_VALIDATORS.put(QS_FOOTER_SHOW_POWER_MENU, BOOLEAN_VALIDATOR);
         }
 
         /**
