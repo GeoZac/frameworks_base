@@ -510,7 +510,12 @@ Navigator.OnVerticalChangedListener, KeyguardMonitor.Callback, NotificationMedia
             setRotateSuggestionButtonState(false);
             return;
         }
-
+        
+        if (!isUsingStockNav() && mNavigationBarView != null) {
+            // Pass the rotation value to the currenetly active navbar 
+            mNavigationBarView.setLastRotation(rotation);
+            }
+            
         // Prepare to show the navbar icon by updating the icon style to change anim params
         mLastRotationSuggestion = rotation; // Remember rotation for click
         if (mNavigationBarView != null) {
@@ -577,7 +582,14 @@ Navigator.OnVerticalChangedListener, KeyguardMonitor.Callback, NotificationMedia
 
     public void setRotateSuggestionButtonState(final boolean visible, final boolean force) {
         if (mNavigationBarView == null) return;
-        if (!isUsingStockNav()) return;
+        if (!isUsingStockNav()) {
+            try {
+            mNavigationBarView.setRotateSuggestionButtonState(visible, false);
+            } catch (Exception e) {
+            Log.e(TAG, "Error showing rotation suggestion", e);
+            }
+            return;
+        }
 
         // At any point the the button can become invisible because an a11y service became active.
         // Similarly, a call to make the button visible may be rejected because an a11y service is

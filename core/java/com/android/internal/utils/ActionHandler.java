@@ -142,6 +142,7 @@ public class ActionHandler {
     public static final String SYSTEMUI_TASK_ONE_HANDED_MODE_LEFT = "task_one_handed_mode_left";
     public static final String SYSTEMUI_TASK_ONE_HANDED_MODE_RIGHT = "task_one_handed_mode_right";
     public static final String SYSTEMUI_TASK_ASSISTANT_SOUND_SEARCH = "task_assistant_sound_search";
+    public static final String SYSTEMUI_TASK_ROTATION = "task_rotation";
 
     public static final String INTENT_SHOW_POWER_MENU = "action_handler_show_power_menu";
     public static final String INTENT_TOGGLE_SCREENRECORD = "action_handler_toggle_screenrecord";
@@ -203,7 +204,8 @@ public class ActionHandler {
         AssistantSoundSearch(SYSTEMUI_TASK_ASSISTANT_SOUND_SEARCH, SYSTEMUI, "label_action_assistant_sound_search", "ic_assistant_sound_search"),
         PlayPause(SYSTEMUI_TASK_MEDIA_PLAY_PAUSE, SYSTEMUI, "label_action_play_pause", "ic_sysbar_play_pause"),
         RingVibeSilent(SYSTEMUI_TASK_SOUNDMODE_VIB_SILENT, SYSTEMUI, "label_action_ring_vibe_silent", "ic_sysbar_ring_vibe_silent"),
-        Camera(SYSTEMUI_TASK_CAMERA, SYSTEMUI, "label_action_camera", "ic_sysbar_camera");
+        Camera(SYSTEMUI_TASK_CAMERA, SYSTEMUI, "label_action_camera", "ic_sysbar_camera"),
+        Rotation(SYSTEMUI_TASK_ROTATION, SYSTEMUI, "label_action_rotation", "ic_smartbar_rotate_button");
 
         String mAction;
         String mResPackage;
@@ -248,7 +250,8 @@ public class ActionHandler {
             SystemAction.OneHandedModeRight, SystemAction.MediaArrowLeft,
             SystemAction.MediaArrowRight, SystemAction.AssistantSoundSearch,
             SystemAction.PlayPause, SystemAction.RingVibeSilent,
-            SystemAction.Camera
+            SystemAction.Camera,
+            SystemAction.Rotation
     };
 
     public static class ActionIconResources {
@@ -305,7 +308,8 @@ public class ActionHandler {
                     || TextUtils.equals(action, SYSTEMUI_TASK_IME_NAVIGATION_LEFT)
                     || TextUtils.equals(action, SYSTEMUI_TASK_IME_NAVIGATION_RIGHT)
                     || TextUtils.equals(action, SYSTEMUI_TASK_IME_NAVIGATION_UP)
-                    || TextUtils.equals(action, SYSTEMUI_TASK_IME_SWITCHER)) {
+                    || TextUtils.equals(action, SYSTEMUI_TASK_IME_SWITCHER)
+                    | TextUtils.equals(action, SYSTEMUI_TASK_ROTATION)) {
                 continue;
             } else if (TextUtils.equals(action, SYSTEMUI_TASK_WIFIAP)
                     && !ActionUtils.deviceSupportsMobileData(context)) {
@@ -678,6 +682,9 @@ public class ActionHandler {
             return;
         } else if (action.equals(SYSTEMUI_TASK_ASSISTANT_SOUND_SEARCH)) {
             startAssistantSoundSearch(context);
+            return;
+        } else if (action.equals(SYSTEMUI_TASK_ROTATION)) {
+            // done straight by smartbarview class
             return;
         }
     }
