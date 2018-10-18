@@ -18,6 +18,7 @@
 package com.android.systemui.qs.tiles;
 
 import android.content.Intent;
+import android.os.CountDownTimer;
 import android.provider.Settings;
 import android.provider.Settings.Global;
 import android.service.quicksettings.Tile;
@@ -39,6 +40,11 @@ public class HeadsUpTile extends QSTileImpl<BooleanState> {
     private final GlobalSetting mSetting;
     private final Icon mIcon = ResourceIcon.get(R.drawable.ic_qs_heads_up_on);
 
+    private CountDownTimer mCountdownTimer = null;
+    private int mSecondsRemaining;
+    
+    private static int mDuration = 10 * 60;
+
     public HeadsUpTile(QSHost host) {
         super(host);
 
@@ -57,7 +63,13 @@ public class HeadsUpTile extends QSTileImpl<BooleanState> {
 
     @Override
     protected void handleClick() {
-        mSetting.setValue(mState.value ? 0 : 1);
+        if (mState.value) {
+            mSetting.setValue(0);
+            startCountDown(mDuration);
+            }
+        else {
+            mSetting.setValue(mState.value ? 0 : 1);
+            }
         refreshState();
     }
 
@@ -83,6 +95,9 @@ public class HeadsUpTile extends QSTileImpl<BooleanState> {
                     R.string.accessibility_quick_settings_heads_up_on);
             state.state = Tile.STATE_ACTIVE;
         } else {
+            if (mCountdownTimer != null) {
+            state.label = formatValueWithRemainingTime();
+            }
             state.contentDescription =  mContext.getString(
                     R.string.accessibility_quick_settings_heads_up_off);
             state.state = Tile.STATE_INACTIVE;
@@ -111,5 +126,46 @@ public class HeadsUpTile extends QSTileImpl<BooleanState> {
     @Override
     public void handleSetListening(boolean listening) {
         // Do nothing
+    }
+    
+    private void startCountDown(long duration) {
+        stopCountDown();
+        mSecondsRemaining = (int)duration;
+        if (duration == -1) {
+            // infinity timing, no need to start timer
+            return;
+        }
+        mCountdownTimer = new CountDownTimer(duration * 1000, 1000) {
+
+            @Override
+            public void onTick(long millisUntilFinished) {
+                mSecondsRemaining = (int) (millisUntilFinished / 1000);
+                refreshState();
+            }
+
+            @Override
+            public void onFinish() {
+                if (!mState.value) {
+                    mSetting.setValue(1);
+                refreshState();
+                }
+            }
+
+        }.start();
+    }
+    
+    private void stopCountDown() {
+        if (mCountdownTimer != null) {
+            mCountdownTimer.cancel();
+            mCountdownTimer = null;
+        }
+    }
+    
+    private String formatValueWithRemainingTime() {
+        if (mSecondsRemaining == -1) {
+            return "\u221E"; // infinity
+        }
+        return String.format("%02d:%02d",
+                        mSecondsRemaining / 60 % 60, mSecondsRemaining % 60);
     }
 }
