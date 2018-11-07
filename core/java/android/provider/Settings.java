@@ -5481,6 +5481,14 @@ public final class Settings {
         @SuppressLint("NoSettingsProvider")
         public static final String STATUSBAR_BATTERY_BAR_ANIMATE = "statusbar_battery_bar_animate";
 
+        /**
+         * Location of the battery bar
+         * @hide
+         */
+        @Readable
+        @SuppressLint("NoSettingsProvider")
+        public static final String STATUSBAR_BATTERY_BAR_LOCATION = "statusbar_battery_bar_location";
+
         /***************************
          * AICP System Settings end
          ***************************/
@@ -5535,6 +5543,7 @@ public final class Settings {
             AICP_SYSTEM_SETTINGS_VALIDATORS.put(STATUSBAR_BATTERY_BAR_THICKNESS, ANY_INTEGER_VALIDATOR);
             AICP_SYSTEM_SETTINGS_VALIDATORS.put(STATUSBAR_BATTERY_BAR_STYLE, ANY_INTEGER_VALIDATOR);
             AICP_SYSTEM_SETTINGS_VALIDATORS.put(STATUSBAR_BATTERY_BAR_ANIMATE, ANY_INTEGER_VALIDATOR);
+            AICP_SYSTEM_SETTINGS_VALIDATORS.put(STATUSBAR_BATTERY_BAR_LOCATION, ANY_INTEGER_VALIDATOR);
         }
 
         /**
