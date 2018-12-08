@@ -26,10 +26,13 @@ import com.android.systemui.qs.tileimpl.QSTileImpl;
 
 
 import com.android.internal.util.aicp.OnTheGoActions;
+import com.android.internal.util.aicp.OnTheGoUtils;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 
 /** Quick settings tile: OnTheGo Mode **/
 public class OnTheGoTile extends QSTileImpl<BooleanState> {
+
+    private final String mServiceName = "com.android.systemui.aicp.onthego.OnTheGoService";
 
     private final Icon mIcon = ResourceIcon.get(R.drawable.ic_qs_onthego);
 
@@ -56,8 +59,9 @@ public class OnTheGoTile extends QSTileImpl<BooleanState> {
 
     @Override
     protected void handleClick() {
-        refreshState();
         toggleState();
+        boolean newState = isOnTheGoModeEnabled();
+        refreshState(newState);
     }
 
     @Override
@@ -72,10 +76,22 @@ public class OnTheGoTile extends QSTileImpl<BooleanState> {
 
     @Override
     protected void handleUpdateState(BooleanState state, Object arg) {
-        state.contentDescription =  mContext.getString(
-                R.string.quick_settings_onthego_label);
+         if (state.slash == null) {
+            state.slash = new SlashState();
+        }
+        state.value = isOnTheGoModeEnabled();
+        state.icon = mIcon;
         state.label = mContext.getString(R.string.quick_settings_onthego_label);
-        state.icon = ResourceIcon.get(R.drawable.ic_qs_onthego);
+        state.contentDescription =  mContext.getString(
+                    R.string.quick_settings_onthego_label);
+        if (state.value) {
+            state.slash.isSlashed = false;
+            state.state = Tile.STATE_ACTIVE;
+            }
+        else {
+            state.slash.isSlashed = true;
+            state.state = Tile.STATE_INACTIVE;
+            }
     }
 
     @Override
@@ -86,5 +102,9 @@ public class OnTheGoTile extends QSTileImpl<BooleanState> {
     @Override
     protected String composeChangeAnnouncement() {
         return mContext.getString(R.string.quick_settings_onthego_label);
+    }
+    
+    private boolean isOnTheGoModeEnabled() {
+        return OnTheGoUtils.isServiceRunning(mContext, mServiceName);
     }
 }
