@@ -5290,6 +5290,30 @@ public final class Settings {
         @SuppressLint("NoSettingsProvider")
         public static final String POWERMENU_TORCH = "powermenu_torch";
 
+        /**
+         * Pulse notifications on tilt
+         * @hide
+         */
+        @Readable
+        @SuppressLint("NoSettingsProvider")
+        public static final String DOZE_TILT_GESTURE = "doze_tilt_gesture";
+
+        /**
+         * Pulse notifications on hand wave
+         * @hide
+         */
+        @Readable
+        @SuppressLint("NoSettingsProvider")
+        public static final String DOZE_HANDWAVE_GESTURE = "doze_handwave_gesture";
+
+        /**
+         * Pulse notifications on removal from pocket
+         * @hide
+         */
+        @Readable
+        @SuppressLint("NoSettingsProvider")
+        public static final String DOZE_POCKET_GESTURE = "doze_pocket_gesture";
+
         /***************************
          * AICP System Settings end
          ***************************/
@@ -5321,6 +5345,9 @@ public final class Settings {
             AICP_SYSTEM_SETTINGS_VALIDATORS.put(POWERMENU_LOGOUT, BOOLEAN_VALIDATOR);
             AICP_SYSTEM_SETTINGS_VALIDATORS.put(POWERMENU_EMERGENCY, BOOLEAN_VALIDATOR);
             AICP_SYSTEM_SETTINGS_VALIDATORS.put(POWERMENU_TORCH, BOOLEAN_VALIDATOR);
+            AICP_SYSTEM_SETTINGS_VALIDATORS.put(DOZE_TILT_GESTURE, BOOLEAN_VALIDATOR);
+            AICP_SYSTEM_SETTINGS_VALIDATORS.put(DOZE_HANDWAVE_GESTURE, BOOLEAN_VALIDATOR);
+            AICP_SYSTEM_SETTINGS_VALIDATORS.put(DOZE_POCKET_GESTURE, BOOLEAN_VALIDATOR);
         }
 
         /**
