@@ -51,4 +51,6 @@ interface IColorDisplayManager {
     int getReduceBrightColorsStrength();
     boolean setReduceBrightColorsStrength(int strength);
     float getReduceBrightColorsOffsetFactor();
+    Time getNightDisplayAutoStartTime();
+    Time getNightDisplayAutoEndTime();
 }
