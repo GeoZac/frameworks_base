@@ -5347,6 +5347,14 @@ public final class Settings {
         @SuppressLint("NoSettingsProvider")
         public static final String OMNI_SYSTEM_PROXI_CHECK_ENABLED = "system_proxi_check_enabled";
 
+        /**
+         * Whether to show or hide alert slider notifications on supported devices
+         * @hide
+         */
+        @Readable
+        @SuppressLint("NoSettingsProvider")
+        public static final String ALERT_SLIDER_NOTIFICATIONS = "alert_slider_notifications";
+
         /***************************
          * AICP System Settings end
          ***************************/
@@ -5385,6 +5393,7 @@ public final class Settings {
             AICP_SYSTEM_SETTINGS_VALIDATORS.put(OMNI_DEVICE_FEATURE_SETTINGS, BOOLEAN_VALIDATOR);
             AICP_SYSTEM_SETTINGS_VALIDATORS.put(OMNI_BUTTON_EXTRA_KEY_MAPPING, BOOLEAN_VALIDATOR);
             AICP_SYSTEM_SETTINGS_VALIDATORS.put(OMNI_SYSTEM_PROXI_CHECK_ENABLED, BOOLEAN_VALIDATOR);
+            AICP_SYSTEM_SETTINGS_VALIDATORS.put(ALERT_SLIDER_NOTIFICATIONS, BOOLEAN_VALIDATOR);
         }
 
         /**
