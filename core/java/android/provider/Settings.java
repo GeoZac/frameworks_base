@@ -5167,6 +5167,37 @@ public final class Settings {
         @Readable
         public static final String MULTI_AUDIO_FOCUS_ENABLED = "multi_audio_focus_enabled";
 
+        /*****************************
+         * AICP System Settings start
+         *****************************/
+
+        /***************************
+         * AICP System Settings end
+         ***************************/
+
+        /**
+         * SettingsBackupAgent will combine its list with this so we dont need
+         * to add new things into SettingsProvider SystemSettings
+         * @hide
+         */
+        public static final String[] AICP_SYSTEM_SETTINGS_TO_BACKUP = {
+            //VOLUME_KEY_CURSOR_CONTROL,
+        };
+
+        /**
+         * SettingsBackupAgent will combine its list with this so we dont need
+         * to add new things into SettingsProvider SystemSettingsValidators
+         * we cant use Validators interface so use a simple integer mapping
+         * BOOLEAN_VALIDATOR == 0
+         * ANY_INTEGER_VALIDATOR == 1
+         * ANY_STRING_VALIDATOR == 2
+         * @hide
+         */
+        public static final Map<String, Integer> AICP_SYSTEM_SETTINGS_VALIDATORS = new ArrayMap<>();
+        static {
+            //AICP_SYSTEM_SETTINGS_VALIDATORS.put(XXXX, 1);
+        }
+
         /**
          * IMPORTANT: If you add a new public settings you also have to add it to
          * PUBLIC_SETTINGS below. If the new setting is hidden you have to add
