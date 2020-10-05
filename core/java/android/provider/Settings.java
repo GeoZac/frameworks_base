@@ -5355,6 +5355,11 @@ public final class Settings {
         @SuppressLint("NoSettingsProvider")
         public static final String ALERT_SLIDER_NOTIFICATIONS = "alert_slider_notifications";
 
+        /** @hide */
+        @Readable
+        @SuppressLint("NoSettingsProvider")
+        public static final String BACK_GESTURE_HAPTIC = "back_gesture_haptic";
+
         /***************************
          * AICP System Settings end
          ***************************/
@@ -5394,6 +5399,7 @@ public final class Settings {
             AICP_SYSTEM_SETTINGS_VALIDATORS.put(OMNI_BUTTON_EXTRA_KEY_MAPPING, BOOLEAN_VALIDATOR);
             AICP_SYSTEM_SETTINGS_VALIDATORS.put(OMNI_SYSTEM_PROXI_CHECK_ENABLED, BOOLEAN_VALIDATOR);
             AICP_SYSTEM_SETTINGS_VALIDATORS.put(ALERT_SLIDER_NOTIFICATIONS, BOOLEAN_VALIDATOR);
+            AICP_SYSTEM_SETTINGS_VALIDATORS.put(BACK_GESTURE_HAPTIC, BOOLEAN_VALIDATOR);
         }
 
         /**
