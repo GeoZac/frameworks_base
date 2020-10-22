@@ -5175,14 +5175,9 @@ public final class Settings {
          * AICP System Settings end
          ***************************/
 
-        /**
-         * SettingsBackupAgent will combine its list with this so we dont need
-         * to add new things into SettingsProvider SystemSettings
-         * @hide
-         */
-        public static final String[] AICP_SYSTEM_SETTINGS_TO_BACKUP = {
-            //VOLUME_KEY_CURSOR_CONTROL,
-        };
+        private static final int BOOLEAN_VALIDATOR = 0;
+        private static final int ANY_INTEGER_VALIDATOR = 1;
+        private static final int ANY_STRING_VALIDATOR = 2;
 
         /**
          * SettingsBackupAgent will combine its list with this so we dont need
@@ -5195,8 +5190,17 @@ public final class Settings {
          */
         public static final Map<String, Integer> AICP_SYSTEM_SETTINGS_VALIDATORS = new ArrayMap<>();
         static {
-            //AICP_SYSTEM_SETTINGS_VALIDATORS.put(XXXX, 1);
+            //AICP_SYSTEM_SETTINGS_VALIDATORS.put(XXX, ANY_INTEGER_VALIDATOR);
         }
+
+        /**
+         * SettingsBackupAgent will combine its list with this so we dont need
+         * to add new things into SettingsProvider SystemSettings
+         * @hide
+         */
+        public static final String[] AICP_SYSTEM_SETTINGS_TO_BACKUP =
+                AICP_SYSTEM_SETTINGS_VALIDATORS.keySet().toArray(
+                        new String[Settings.System.AICP_SYSTEM_SETTINGS_VALIDATORS.size()]);
 
         /**
          * IMPORTANT: If you add a new public settings you also have to add it to
@@ -10099,6 +10103,48 @@ public final class Settings {
          * @hide
          */
         public static final String ADAPTIVE_CONNECTIVITY_ENABLED = "adaptive_connectivity_enabled";
+
+        /*****************************
+         * AICP Secure Settings start
+         *****************************/
+
+        /**
+         * Whether to show the battery info on the lockscreen while charging
+         * @hide
+         */
+        //@Readable
+        //public static final String LOCKSCREEN_BATTERY_INFO = "lockscreen_battery_info";
+
+        /***************************
+         * AICP Secure Settings end
+         ***************************/
+
+        private static final int BOOLEAN_VALIDATOR = 0;
+        private static final int ANY_INTEGER_VALIDATOR = 1;
+        private static final int ANY_STRING_VALIDATOR = 2;
+
+        /**
+         * SettingsBackupAgent will combine its list with this so we dont need
+         * to add new things into SettingsProvider SystemSettingsValidators
+         * we cant use Validators interface so use a simple integer mapping
+         * BOOLEAN_VALIDATOR == 0
+         * ANY_INTEGER_VALIDATOR == 1
+         * ANY_STRING_VALIDATOR == 2
+         * @hide
+         */
+        public static final Map<String, Integer> AICP_SECURE_SETTINGS_VALIDATORS = new ArrayMap<>();
+        static {
+            //AICP_SECURE_SETTINGS_VALIDATORS.put(LOCKSCREEN_BATTERY_INFO, ANY_INTEGER_VALIDATOR);
+        }
+
+        /**
+         * SettingsBackupAgent will combine its list with this so we dont need
+         * to add new things into SettingsProvider SystemSettings
+         * @hide
+         */
+        public static final String[] AICP_SECURE_SETTINGS_TO_BACKUP =
+                AICP_SECURE_SETTINGS_VALIDATORS.keySet().toArray(
+                        new String[Settings.Secure.AICP_SECURE_SETTINGS_VALIDATORS.size()]);
 
         /**
          * Keys we no longer back up under the current schema, but want to continue to
