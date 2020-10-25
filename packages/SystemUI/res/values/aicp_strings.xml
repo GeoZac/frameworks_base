@@ -181,4 +181,8 @@
 
     <!-- OnTheGo Tile -->
     <string name="quick_settings_onthego_label">On-The-Go</string>
+
+    <!-- Aicp Extras Tile -->
+    <string name="quick_aicp_extras_label">AICP Extras</string>
+    <string name="quick_aicp_extras_toast">LOL, you really thought that long click will take you somewhere!!!</string>
 </resources>
