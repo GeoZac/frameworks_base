@@ -246,5 +246,6 @@ public class SystemSettings {
         Settings.System.CAMERA_SLEEP_ON_RELEASE,
         Settings.System.CAMERA_LAUNCH,
         Settings.System.AUTHORIZATION_RIPPLE_EFFECT,
+        Settings.System.PULSE_ON_NEW_TRACKS,
     };
 }
