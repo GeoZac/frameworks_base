@@ -71,10 +71,10 @@ public class VolumePluginManager extends BroadcastReceiver {
     static final String VOLUME_PLUGIN_ACTION = "com.android.systemui.action.PLUGIN_VOLUME";
 
     static final String[] ALLOWED_PLUGINS = {
-        "com.android.plugin.volume.aosp",
-        "com.android.plugin.volume.compact",
-        "com.android.plugin.volume.oreo",
-        "com.android.plugin.volume.tiled",
+        "co.potatoproject.plugin.volume.aosp",
+        "co.potatoproject.plugin.volume.compact",
+        "co.potatoproject.plugin.volume.oreo",
+        "co.potatoproject.plugin.volume.tiled",
     };
 
     private PluginPrefs mPluginPrefs;
