@@ -47,6 +47,7 @@
                 android:letterSpacing="0.02"
                 android:paddingBottom="@*com.android.systemui:dimen/title_clock_padding"
                 android:textColor="?attr/wallpaperTextColor"
+                android:textSize="@dimen/fluid_clock_font_size"
                 android:textStyle="bold" />
 
             <TextClock
@@ -60,6 +61,7 @@
                 android:letterSpacing="0.02"
                 android:paddingLeft="2dp"
                 android:paddingBottom="@*com.android.systemui:dimen/title_clock_padding"
+                android:textSize="@dimen/fluid_clock_font_size"
                 android:textColor="@color/typeClockAccentColor" />
         </LinearLayout>
 
@@ -78,7 +80,7 @@
                 android:format12Hour="EEEE, "
                 android:format24Hour="EEEE, "
                 android:textColor="?attr/wallpaperTextColor"
-                android:textSize="16dp" />
+                android:textSize="@dimen/fluid_date_font_size" />
 
             <TextClock
                 android:id="@+id/clock_date"
@@ -88,7 +90,7 @@
                 android:format12Hour="dd MMMM "
                 android:format24Hour="dd MMMM "
                 android:textColor="@color/typeClockAccentColor"
-                android:textSize="16dp"
+                android:textSize="@dimen/fluid_date_font_size"
                 android:textStyle="bold" />
 
             <TextClock
@@ -99,7 +101,7 @@
                 android:format12Hour="yyyy"
                 android:format24Hour="yyyy"
                 android:textColor="?attr/wallpaperTextColor"
-                android:textSize="16dp" />
+                android:textSize="@dimen/fluid_date_font_size" />
         </LinearLayout>
     </LinearLayout>
 </com.android.keyguard.clock.ClockLayout>

@@ -28,4 +28,15 @@
 
     <dimen name="ide_clock_font_size">14sp</dimen>
 
+    <dimen name="custom_clock_font_size">54sp</dimen>
+
+    <dimen name="ssos_clock_font_size">45sp</dimen>
+    <dimen name="ssos_date_font_size">15sp</dimen>
+
+    <dimen name="fluid_clock_font_size">54sp</dimen>
+    <dimen name="fluid_date_font_size">16sp</dimen>
+
+    <dimen name="sfunny_hour_font_size">88sp</dimen>
+    <dimen name="sfunny_min_font_size">48sp</dimen>
+
 </resources>

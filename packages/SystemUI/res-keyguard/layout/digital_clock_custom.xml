@@ -36,6 +36,7 @@
              android:textColor="?attr/wallpaperTextColor"
              style="@style/widget_big"
              android:elegantTextHeight="false"
+             android:textSize="@dimen/custom_clock_font_size"
         />
     </FrameLayout>
 </com.android.keyguard.clock.ClockLayout>

@@ -22,7 +22,7 @@
             android:format24Hour="kk"
             style="@style/widget_big"
             android:textColor="?attr/wallpaperTextColor"
-            android:textSize="88sp" />
+            android:textSize="@dimen/sfunny_hour_font_size" />
 
         <TextClock
             android:id="@+id/clockMinute"
@@ -34,7 +34,7 @@
             android:format24Hour="mm"
             style="@style/widget_big"
             android:textColor="?attr/wallpaperTextColor"
-            android:textSize="48sp" />
+            android:textSize="@dimen/sfunny_min_font_size" />
 
     </LinearLayout>
 </com.android.keyguard.clock.ClockLayout>
