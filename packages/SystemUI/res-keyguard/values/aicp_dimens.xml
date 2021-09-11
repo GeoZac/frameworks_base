@@ -39,4 +39,9 @@
     <dimen name="sfunny_hour_font_size">88sp</dimen>
     <dimen name="sfunny_min_font_size">48sp</dimen>
 
+    <dimen name="sclock_clock_font_size">36sp</dimen>
+    <dimen name="sclock_big_clock_font_size">56sp</dimen>
+    <dimen name="sclock_date_font_size">7dp</dimen>
+    <dimen name="sclock_icon_size">18dp</dimen>
+
 </resources>
