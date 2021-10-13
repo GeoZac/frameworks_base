@@ -249,5 +249,6 @@ public class SystemSettings {
         Settings.System.PULSE_ON_NEW_TRACKS,
         Settings.System.ROAMING_INDICATOR_ICON,
         Settings.System.SHOW_LTE_FOURGEE,
+        Settings.System.LOCKSCREEN_QUICK_UNLOCK_CONTROL,
     };
 }
