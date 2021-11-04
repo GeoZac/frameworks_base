@@ -63,7 +63,7 @@ import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.LifecycleRegistry;
 
 import com.android.internal.logging.UiEventLogger;
-import com.android.internal.util.aicp.AicpUtils;
+import com.aicp.gear.util.AicpUtils;
 import com.android.internal.util.aicp.FileUtils;
 import com.android.settingslib.Utils;
 import com.android.systemui.BatteryMeterView;

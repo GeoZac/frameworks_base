@@ -18,8 +18,8 @@ package com.android.server.am;
 
 import static android.app.ActivityTaskManager.INVALID_TASK_ID;
 
-import com.android.internal.util.aicp.HasteUtils;
-import com.android.internal.util.aicp.HasteUtils.UploadResultCallback;
+import com.aicp.gear.util.HasteUtils;
+import com.aicp.gear.util.HasteUtils.UploadResultCallback;
 
 import android.content.BroadcastReceiver;
 import android.content.ClipboardManager;

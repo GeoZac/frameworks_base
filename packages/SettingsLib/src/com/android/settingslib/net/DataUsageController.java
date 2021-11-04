@@ -38,13 +38,14 @@ import android.os.ServiceManager;
 import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
 import android.text.format.DateUtils;
+import android.text.format.Time;
 import android.util.Log;
 import android.util.Range;
 
 import com.android.internal.R;
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.internal.util.ArrayUtils;
-import com.android.internal.util.aicp.AicpUtils;
+// import com.android.internal.util.aicp.AicpUtils;
 
 import java.time.ZonedDateTime;
 import java.util.Iterator;
@@ -310,7 +311,7 @@ public class DataUsageController {
     public DataUsageInfo getDailyDataUsageInfo(NetworkTemplate template) {
         final NetworkPolicy policy = findNetworkPolicy(template);
         final long end = System.currentTimeMillis();
-        long start = end - AicpUtils.getTodayMillis();
+        long start = end - getTodayMillis();
 
         final long totalBytes = getUsageLevel(template, start, end);
         if (totalBytes < 0L) {
@@ -334,4 +335,14 @@ public class DataUsageController {
         }
         return usage;
     }
+
+    // Returns today's passed time in Millisecond
+    private static long getTodayMillis() {
+        final long passedMillis;
+        Time time = new Time();
+        time.set(System.currentTimeMillis());
+        passedMillis = ((time.hour * 60 * 60) + (time.minute * 60) + time.second) * 1000;
+        return passedMillis;
+    }
+
 }

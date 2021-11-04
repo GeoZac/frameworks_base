@@ -13,7 +13,7 @@ import android.util.KeyValueListParser;
 import android.util.Log;
 
 import com.android.internal.os.BatteryStatsHelper;
-import com.android.internal.util.aicp.PackageUtils;
+import com.aicp.gear.util.PackageUtils;
 
 import com.android.settingslib.fuelgauge.Estimate;
 import com.android.settingslib.utils.PowerUtil;

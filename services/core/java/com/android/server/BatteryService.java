@@ -69,7 +69,7 @@ import android.util.proto.ProtoOutputStream;
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.internal.app.IBatteryStats;
 import com.android.internal.logging.MetricsLogger;
-import com.android.internal.util.aicp.AicpUtils;
+import com.aicp.gear.util.AicpUtils;
 import com.android.internal.util.DumpUtils;
 import com.android.server.am.BatteryStatsService;
 import com.android.server.lights.LightsManager;

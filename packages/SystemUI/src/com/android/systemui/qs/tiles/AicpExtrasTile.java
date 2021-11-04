@@ -21,7 +21,7 @@ import android.content.Intent;
 import android.widget.Toast;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
-import com.android.internal.util.aicp.PackageUtils;
+import com.aicp.gear.util.PackageUtils;
 import com.android.systemui.Dependency;
 import com.android.systemui.R;
 import com.android.systemui.SysUIToast;

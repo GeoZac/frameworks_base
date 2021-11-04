@@ -10,7 +10,7 @@ import android.text.format.Formatter.BytesResult;
 import android.util.AttributeSet;
 import android.widget.TextView;
 
-import com.android.internal.util.aicp.AicpUtils;
+import com.aicp.gear.util.AicpUtils;
 import com.android.settingslib.net.DataUsageController;
 import com.android.systemui.Dependency;
 import com.android.systemui.R;

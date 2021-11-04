@@ -36,7 +36,7 @@ import com.android.systemui.R;
 import com.android.systemui.plugins.FalsingManager;
 import com.android.systemui.statusbar.notification.row.ExpandableView;
 
-import com.android.internal.util.aicp.AicpUtils;
+import com.aicp.gear.util.AicpUtils;
 
 /**
  * A utility class to enable the downward swipe on the lockscreen to go to the full shade and expand

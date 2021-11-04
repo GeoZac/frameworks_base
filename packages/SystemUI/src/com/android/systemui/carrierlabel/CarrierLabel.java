@@ -33,7 +33,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
-import com.android.internal.util.aicp.AicpUtils;
+import com.aicp.gear.util.AicpUtils;
 import com.android.internal.telephony.TelephonyIntents;
 
 import com.android.systemui.Dependency;

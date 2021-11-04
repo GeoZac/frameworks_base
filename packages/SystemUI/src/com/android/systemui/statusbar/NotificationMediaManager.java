@@ -55,7 +55,7 @@ import android.widget.ImageView;
 
 import com.android.internal.config.sysui.SystemUiDeviceConfigFlags;
 import com.android.internal.statusbar.NotificationVisibility;
-import com.android.internal.util.aicp.ImageHelper;
+import com.aicp.gear.util.ImageHelper;
 import com.android.systemui.Dependency;
 import com.android.systemui.Dumpable;
 import com.android.systemui.Interpolators;

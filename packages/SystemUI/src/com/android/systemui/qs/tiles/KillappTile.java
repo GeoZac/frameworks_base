@@ -19,7 +19,7 @@ package com.android.systemui.qs.tiles;
 import android.content.Intent;
 import android.service.quicksettings.Tile;
 
-import com.android.internal.util.aicp.AicpUtils;
+import com.aicp.gear.util.AicpUtils;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.systemui.R;
 import com.android.systemui.plugins.ActivityStarter;

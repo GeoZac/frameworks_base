@@ -26,8 +26,8 @@ import android.service.quicksettings.Tile;
 import android.widget.Toast;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
-import com.android.internal.util.aicp.AicpUtils;
-import com.android.internal.util.aicp.PackageUtils;
+import com.aicp.gear.util.AicpUtils;
+import com.aicp.gear.util.PackageUtils;
 import com.android.systemui.Dependency;
 import com.android.systemui.qs.QSHost;
 import com.android.systemui.plugins.qs.QSTile.BooleanState;
