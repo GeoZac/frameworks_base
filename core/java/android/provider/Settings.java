@@ -5250,25 +5250,7 @@ public final class Settings {
          *
          * @hide
          */
-        @Readable
-        @SuppressLint("NoSettingsProvider")
-        public static final String POWERMENU_RESTART = "powermenu_restart";
-
-         /**
-         * Whether to display reboot in the power menu
-         *
-         * @hide
-         */
         public static final String POWERMENU_ADVANCED = "powermenu_advanced";
-
-         /**
-         * Whether to display power in the power menu
-         *
-         * @hide
-         */
-        @Readable
-        @SuppressLint("NoSettingsProvider")
-        public static final String POWERMENU_POWER = "powermenu_power";
 
          /**
          * Whether to display the users option in the power menu
@@ -5297,6 +5279,15 @@ public final class Settings {
         @SuppressLint("NoSettingsProvider")
         public static final String POWERMENU_EMERGENCY = "powermenu_emergency";
 
+        /**
+         * Whether to display the torch option in the power menu
+         *
+         * @hide
+         */
+        @Readable
+        @SuppressLint("NoSettingsProvider")
+        public static final String POWERMENU_TORCH = "powermenu_torch";
+
         /***************************
          * AICP System Settings end
          ***************************/
@@ -5323,11 +5314,11 @@ public final class Settings {
             AICP_SYSTEM_SETTINGS_VALIDATORS.put(POWERMENU_SETTINGS, BOOLEAN_VALIDATOR);
             AICP_SYSTEM_SETTINGS_VALIDATORS.put(POWERMENU_LOCKDOWN, BOOLEAN_VALIDATOR);
             AICP_SYSTEM_SETTINGS_VALIDATORS.put(POWERMENU_AIRPLANE, BOOLEAN_VALIDATOR);
-            AICP_SYSTEM_SETTINGS_VALIDATORS.put(POWERMENU_RESTART, BOOLEAN_VALIDATOR);
-            AICP_SYSTEM_SETTINGS_VALIDATORS.put(POWERMENU_POWER, BOOLEAN_VALIDATOR);
             AICP_SYSTEM_SETTINGS_VALIDATORS.put(POWERMENU_USERS, BOOLEAN_VALIDATOR);
+            AICP_SYSTEM_SETTINGS_VALIDATORS.put(POWERMENU_ADVANCED, BOOLEAN_VALIDATOR);
             AICP_SYSTEM_SETTINGS_VALIDATORS.put(POWERMENU_LOGOUT, BOOLEAN_VALIDATOR);
             AICP_SYSTEM_SETTINGS_VALIDATORS.put(POWERMENU_EMERGENCY, BOOLEAN_VALIDATOR);
+            AICP_SYSTEM_SETTINGS_VALIDATORS.put(POWERMENU_TORCH, BOOLEAN_VALIDATOR);
         }
 
         /**
@@ -5345,13 +5336,6 @@ public final class Settings {
          * it to PRIVATE_SETTINGS below. Also add a validator that can validate
          * the setting value. See an example above.
          */
-
-        /**
-         * Whether to display the torch option in the power menu
-         *
-         * @hide
-         */
-        public static final String POWERMENU_TORCH = "powermenu_torch";
 
         /**
          * Keys we no longer back up under the current schema, but want to continue to
