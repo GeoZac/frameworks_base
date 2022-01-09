@@ -283,7 +283,7 @@ public class QSFooterView extends FrameLayout implements TunerService.Tunable {
                 break;
             case QS_FOOTER_SHOW_SERVICES:
                 mShowServicesIcon =
-                        TunerService.parseIntegerSwitch(newValue, false);
+                        TunerService.parseIntegerSwitch(newValue, true);
                 break;
             case QS_FOOTER_SHOW_EDIT:
                 mShowEditIcon =
