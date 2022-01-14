@@ -99,7 +99,7 @@ public class GestureNavigationSettingsObserver extends ContentObserver {
 
     public boolean getEdgeHaptic() {
         return Settings.System.getIntForUser(
-               mContext.getContentResolver(), Settings.System.BACK_GESTURE_HAPTIC, 0,
+               mContext.getContentResolver(), Settings.System.BACK_GESTURE_HAPTIC, 1,
                UserHandle.USER_CURRENT) == 1;
     }
 
