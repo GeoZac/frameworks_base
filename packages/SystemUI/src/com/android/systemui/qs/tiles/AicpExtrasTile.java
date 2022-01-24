@@ -37,7 +37,8 @@ import com.android.systemui.dagger.qualifiers.Main;
 import com.android.systemui.plugins.ActivityStarter;
 import com.android.systemui.plugins.FalsingManager;
 import com.android.systemui.plugins.qs.QSIconView;
-import com.android.systemui.plugins.qs.QSTile.BooleanState;
+import com.android.systemui.plugins.qs.QSTile;
+import com.android.systemui.plugins.qs.QSTile.State;
 import com.android.systemui.plugins.statusbar.StatusBarStateController;
 import com.android.systemui.qs.QSHost;
 import com.android.systemui.qs.logging.QSLogger;
@@ -45,7 +46,7 @@ import com.android.systemui.qs.tileimpl.QSTileImpl;
 
 import javax.inject.Inject;
 
-public class AicpExtrasTile extends QSTileImpl<BooleanState> {
+public class AicpExtrasTile extends QSTileImpl<State> {
     private boolean mListening;
     private final ActivityStarter mActivityStarter;
 
@@ -78,8 +79,8 @@ public class AicpExtrasTile extends QSTileImpl<BooleanState> {
     }
 
     @Override
-    public BooleanState newTileState() {
-        return new BooleanState();
+    public State newTileState() {
+        return new State();
     }
 
     @Override
@@ -144,7 +145,7 @@ public class AicpExtrasTile extends QSTileImpl<BooleanState> {
     }
 
     @Override
-    protected void handleUpdateState(BooleanState state, Object arg) {
+    protected void handleUpdateState(State state, Object arg) {
         state.icon = ResourceIcon.get(R.drawable.ic_qs_aicp_extras);
         state.label = mContext.getString(R.string.quick_aicp_extras_label);
     }
