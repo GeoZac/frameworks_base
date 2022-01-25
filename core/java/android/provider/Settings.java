@@ -11565,6 +11565,13 @@ public final class Settings {
          */
         public static final String PULSE_SOLID_UNITS_ROUNDED = "pulse_solid_units_rounded";
 
+        /**
+         * Whether to show privacy indicator for location
+         * Default value is based on it's device config flag
+         * @hide
+         */
+        public static final String ENABLE_LOCATION_PRIVACY_INDICATOR = "enable_location_privacy_indicator";
+
         /*****************************
          * AICP Secure Settings end
          *****************************/
