@@ -235,5 +235,11 @@ public class SecureSettings {
         Settings.Secure.PULSE_AMBIENT_LIGHT_REPEAT_COUNT,
         Settings.Secure.PULSE_AMBIENT_LIGHT_REPEAT_DIRECTION,
         Settings.Secure.PULSE_AMBIENT_LIGHT_WIDTH,
+        Settings.Secure.MONET_ENGINE_ACCURATE_SHADES,
+        Settings.Secure.MONET_ENGINE_COLOR_OVERRIDE,
+        Settings.Secure.MONET_ENGINE_CUSTOM_COLOR,
+        Settings.Secure.MONET_ENGINE_CHROMA_FACTOR,
+        Settings.Secure.MONET_ENGINE_LINEAR_LIGHTNESS,
+        Settings.Secure.MONET_ENGINE_WHITE_LUMINANCE,
     };
 }
