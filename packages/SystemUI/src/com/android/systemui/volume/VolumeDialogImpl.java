@@ -84,6 +84,7 @@ import android.provider.Settings;
 import android.provider.Settings.Global;
 import android.text.InputFilter;
 import android.text.TextUtils;
+import android.util.FeatureFlagUtils;
 import android.util.Log;
 import android.util.Slog;
 import android.util.SparseBooleanArray;
@@ -267,6 +268,7 @@ public class VolumeDialogImpl implements VolumeDialog,
 
     private final ConfigurationController mConfigurationController;
     private final MediaOutputDialogFactory mMediaOutputDialogFactory;
+    private final VolumePanelFactory mVolumePanelFactory;
     private final ActivityStarter mActivityStarter;
 
     private boolean mShowing;
@@ -311,6 +313,7 @@ public class VolumeDialogImpl implements VolumeDialog,
             DeviceProvisionedController deviceProvisionedController,
             ConfigurationController configurationController,
             MediaOutputDialogFactory mediaOutputDialogFactory,
+            VolumePanelFactory volumePanelFactory,
             ActivityStarter activityStarter,
             InteractionJankMonitor interactionJankMonitor,
             TunerService tunerService) {
@@ -323,6 +326,7 @@ public class VolumeDialogImpl implements VolumeDialog,
         mDeviceProvisionedController = deviceProvisionedController;
         mConfigurationController = configurationController;
         mMediaOutputDialogFactory = mediaOutputDialogFactory;
+        mVolumePanelFactory = volumePanelFactory;
         mActivityStarter = activityStarter;
         mTunerService = tunerService;
         mShowActiveStreamOnly = showActiveStreamOnly();
@@ -1282,6 +1286,14 @@ public class VolumeDialogImpl implements VolumeDialog,
                         ? getActiveLocalMediaController().getPackageName() : "";
                 mMediaOutputDialogFactory.create(packageName, true, mDialogView);
                 dismissH(DISMISS_REASON_SETTINGS_CLICKED);
+                mMediaOutputDialogFactory.dismiss();
+                if (FeatureFlagUtils.isEnabled(mContext,
+                        FeatureFlagUtils.SETTINGS_VOLUME_PANEL_IN_SYSTEMUI)) {
+                    mVolumePanelFactory.create(true /* aboveStatusBar */, null);
+                } else {
+                    mActivityStarter.startActivity(new Intent(Settings.Panel.ACTION_VOLUME),
+                            true /* dismissShade */);
+                }
             });
         }
 

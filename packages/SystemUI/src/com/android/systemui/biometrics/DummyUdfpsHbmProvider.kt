@@ -19,14 +19,16 @@ package com.android.systemui.biometrics
 import android.content.Context
 import android.view.Surface
 
-class DummyUdfpsHbmProvider constructor(
+import com.android.systemui.biometrics.UdfpsDisplayModeProvider;
+
+class DummyUdfpsDisplayModeProvider constructor(
     private val context: Context
-): UdfpsHbmProvider {
-    override fun enableHbm(halControlsIllumination: Boolean, onHbmEnabled: Runnable?) {
+): UdfpsDisplayModeProvider {
+    override fun enable(onHbmEnabled: Runnable?) {
         onHbmEnabled?.run()
     }
 
-    override fun disableHbm(onHbmDisabled: Runnable?) {
+    override fun disable(onHbmDisabled: Runnable?) {
         onHbmDisabled?.run()
     }
 }

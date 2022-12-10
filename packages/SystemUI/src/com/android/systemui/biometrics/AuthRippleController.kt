@@ -20,7 +20,7 @@ import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
 import android.animation.ValueAnimator
 import android.content.Context
-import android.graphics.PointF
+import android.graphics.Point
 import android.hardware.biometrics.BiometricFingerprintConstants
 import android.hardware.biometrics.BiometricSourceType
 import android.os.UserHandle
@@ -82,8 +82,8 @@ class AuthRippleController @Inject constructor(
     @VisibleForTesting
     internal var startLightRevealScrimOnKeyguardFadingAway = false
     var lightRevealScrimAnimator: ValueAnimator? = null
-    var fingerprintSensorLocation: PointF? = null
-    private var faceSensorLocation: PointF? = null
+    var fingerprintSensorLocation: Point? = null
+    private var faceSensorLocation: Point? = null
     private var circleReveal: LightRevealEffect? = null
 
     private var udfpsController: UdfpsController? = null
@@ -102,7 +102,6 @@ class AuthRippleController @Inject constructor(
     public override fun onViewAttached() {
         authController.addCallback(authControllerCallback)
         updateRippleColor()
-        updateSensorLocation()
         updateUdfpsDependentParams()
         udfpsController?.addCallback(udfpsControllerCallback)
         configurationController.addCallback(configurationChangedListener)
@@ -138,10 +137,10 @@ class AuthRippleController @Inject constructor(
                 circleReveal = CircleReveal(
                         it.x,
                         it.y,
-                        0f,
+                        0,
                         Math.max(
-                                Math.max(it.x, centralSurfaces.displayWidth - it.x),
-                                Math.max(it.y, centralSurfaces.displayHeight - it.y)
+                                Math.max(it.x, centralSurfaces.displayWidth.toInt() - it.x),
+                                Math.max(it.y, centralSurfaces.displayHeight.toInt() - it.y)
                         )
                 )
                 showUnlockedRipple()
@@ -155,10 +154,10 @@ class AuthRippleController @Inject constructor(
                 circleReveal = CircleReveal(
                         it.x,
                         it.y,
-                        0f,
+                        0,
                         Math.max(
-                                Math.max(it.x, centralSurfaces.displayWidth - it.x),
-                                Math.max(it.y, centralSurfaces.displayHeight - it.y)
+                                Math.max(it.x, centralSurfaces.displayWidth.toInt() - it.x),
+                                Math.max(it.y, centralSurfaces.displayHeight.toInt() - it.y)
                         )
                 )
                 showUnlockedRipple()
@@ -245,7 +244,7 @@ class AuthRippleController @Inject constructor(
 
     fun updateSensorLocation() {
         fingerprintSensorLocation = authController.fingerprintSensorLocation
-        faceSensorLocation = authController.faceAuthSensorLocation
+        faceSensorLocation = authController.faceSensorLocation
     }
 
     private fun updateRippleColor() {
@@ -254,7 +253,11 @@ class AuthRippleController @Inject constructor(
     }
 
     private fun showDwellRipple() {
-        mView.startDwellRipple(statusBarStateController.isDozing)
+        updateSensorLocation()
+        fingerprintSensorLocation?.let {
+            mView.setFingerprintSensorLocation(it, udfpsRadius)
+            mView.startDwellRipple(statusBarStateController.isDozing)
+        }
     }
 
     private val keyguardUpdateMonitorCallback =
@@ -281,7 +284,7 @@ class AuthRippleController @Inject constructor(
             acquireInfo: Int
         ) {
             if (biometricSourceType == BiometricSourceType.FINGERPRINT &&
-                    BiometricFingerprintConstants.shouldTurnOffHbm(acquireInfo) &&
+                    BiometricFingerprintConstants.shouldDisableUdfpsDisplayMode(acquireInfo) &&
                     acquireInfo != BiometricFingerprintConstants.FINGERPRINT_ACQUIRED_GOOD) {
                 // received an 'acquiredBad' message, so immediately retract
                 mView.retractDwellRipple()
@@ -308,13 +311,6 @@ class AuthRippleController @Inject constructor(
     private val udfpsControllerCallback =
         object : UdfpsController.Callback {
             override fun onFingerDown() {
-                if (fingerprintSensorLocation == null) {
-                    Log.e("AuthRipple", "fingerprintSensorLocation=null onFingerDown. " +
-                            "Skip showing dwell ripple")
-                    return
-                }
-
-                mView.setFingerprintSensorLocation(fingerprintSensorLocation!!, udfpsRadius)
                 showDwellRipple()
             }
 
@@ -327,12 +323,10 @@ class AuthRippleController @Inject constructor(
         object : AuthController.Callback {
             override fun onAllAuthenticatorsRegistered() {
                 updateUdfpsDependentParams()
-                updateSensorLocation()
             }
 
             override fun onUdfpsLocationChanged() {
                 updateUdfpsDependentParams()
-                updateSensorLocation()
             }
         }
 
@@ -362,13 +356,11 @@ class AuthRippleController @Inject constructor(
                                 "\n\tudfpsRadius=$udfpsRadius")
                     }
                     "fingerprint" -> {
-                        updateSensorLocation()
                         pw.println("fingerprint ripple sensorLocation=$fingerprintSensorLocation")
                         showUnlockRipple(BiometricSourceType.FINGERPRINT)
                     }
                     "face" -> {
                         // note: only shows when about to proceed to the home screen
-                        updateSensorLocation()
                         pw.println("face ripple sensorLocation=$faceSensorLocation")
                         showUnlockRipple(BiometricSourceType.FACE)
                     }
@@ -379,9 +371,8 @@ class AuthRippleController @Inject constructor(
                             invalidCommand(pw)
                             return
                         }
-                        pw.println("custom ripple sensorLocation=" + args[1].toFloat() + ", " +
-                            args[2].toFloat())
-                        mView.setSensorLocation(PointF(args[1].toFloat(), args[2].toFloat()))
+                        pw.println("custom ripple sensorLocation=" + args[1] + ", " + args[2])
+                        mView.setSensorLocation(Point(args[1].toInt(), args[2].toInt()))
                         showUnlockedRipple()
                     }
                     else -> invalidCommand(pw)

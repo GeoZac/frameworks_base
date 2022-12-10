@@ -26,9 +26,9 @@ import com.android.systemui.biometrics.AuthController
 import com.android.systemui.Dependency
 import com.google.hardware.pixel.display.IDisplay
 
-class PixelUdfpsHbmProvider constructor(
+class PixelUdfpsDisplayModeProvider constructor(
     private val context: Context
-) : UdfpsHbmProvider, IBinder.DeathRecipient, DisplayManager.DisplayListener {
+) : UdfpsDisplayModeProvider, IBinder.DeathRecipient, DisplayManager.DisplayListener {
 
     private val authController = Dependency.get(AuthController::class.java)
     private val bgExecutor = Dependency.get(Dependency.BACKGROUND_EXECUTOR)
@@ -56,7 +56,7 @@ class PixelUdfpsHbmProvider constructor(
         displayManager.registerDisplayListener(this, handler)
     }
 
-    override fun enableHbm(halControlsIllumination: Boolean, onHbmEnabled: Runnable?) {
+    override fun enable(onHbmEnabled: Runnable?) {
         // Run the callback and skip enabling if already enabled
         // (otherwise it may fail, similar to disabling)
         if (displayHal.getLhbmState()) {
@@ -90,7 +90,7 @@ class PixelUdfpsHbmProvider constructor(
         pendingEnableCallback = null // to avoid leaking memory
     }
 
-    override fun disableHbm(onHbmDisabled: Runnable?) {
+    override fun disable(onHbmDisabled: Runnable?) {
         // If there's a pending enable, clear it and skip the disable request entirely.
         // Otherwise, HBM will be disabled before the enable - while it's already disabled, which
         // causes the display HAL call to throw an exception.

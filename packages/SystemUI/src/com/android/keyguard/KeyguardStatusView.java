@@ -62,7 +62,6 @@ public class KeyguardStatusView extends GridLayout implements
     private boolean mOmniStyle;
 
     private float mDarkAmount = 0;
-    private int mTextColor;
 
     public KeyguardStatusView(Context context) {
         this(context, null, 0);
@@ -109,13 +108,11 @@ public class KeyguardStatusView extends GridLayout implements
             return;
         }
         mDarkAmount = darkAmount;
-        mClockView.setDarkAmount(darkAmount);
         CrossFadeHelper.fadeOut(mMediaHostContainer, darkAmount);
         updateDark();
     }
 
     void updateDark() {
-        final int blendedTextColor = ColorUtils.blendARGB(mTextColor, Color.WHITE, mDarkAmount);
         mKeyguardSlice.setDarkAmount(mDarkAmount);
         mClockView.setTextColor(blendedTextColor);
         if (mWeatherView != null) {
@@ -142,7 +139,6 @@ public class KeyguardStatusView extends GridLayout implements
     public void dump(PrintWriter pw, String[] args) {
         pw.println("KeyguardStatusView:");
         pw.println("  mDarkAmount: " + mDarkAmount);
-        pw.println("  mTextColor: " + Integer.toHexString(mTextColor));
         if (mClockView != null) {
             mClockView.dump(pw, args);
         }
