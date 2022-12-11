@@ -120,7 +120,6 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
     private final NotificationPanelViewController mNotificationPanelViewController;
     private final NetworkController mNetworkController;
     private LinearLayout mEndSideContent;
-    private View mClockView;
     private LinearLayout mCustomIconArea;
     private LinearLayout mCenterClockLayout;
     private View mStatusBarLogo, mStatusBarLogoRight;

@@ -231,6 +231,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
+import java.util.concurrent.Executor;
 import java.util.function.Consumer;
 
 import javax.inject.Inject;
@@ -668,7 +669,6 @@ public final class NotificationPanelViewController extends PanelViewController {
     private int mQsSmartPullDown;
 
     private final Executor mUiExecutor;
-    private final SecureSettings mSecureSettings;
 
     private final KeyguardMediaController mKeyguardMediaController;
 
@@ -2234,12 +2234,12 @@ public final class NotificationPanelViewController extends PanelViewController {
                 break;
         }
 
-        if (mQsSmartPullDown == 1 && !hasActiveClearableNotifications()
-                || mQsSmartPullDown == 2 &&
-                !mEntryManager.hasActiveOngoingNotifications()
-                || mQsSmartPullDown == 3 && !mEntryManager.hasActiveVisibleNotifications()) {
-                showQsOverride = true;
-        }
+        // if (mQsSmartPullDown == 1 && !hasActiveClearableNotifications()
+        //         || mQsSmartPullDown == 2 &&
+        //         !mEntryManager.hasActiveOngoingNotifications()
+        //         || mQsSmartPullDown == 3 && !mEntryManager.hasActiveVisibleNotifications()) {
+        //         showQsOverride = true;
+        // }
 
         showQsOverride &= mBarState == StatusBarState.SHADE;
 

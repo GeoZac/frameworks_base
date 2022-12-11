@@ -58,11 +58,10 @@ public class StatusBarWifiView extends BaseStatusBarWifiView implements DarkRece
     private View mAirplaneSpacer;
     private WifiIconState mState;
     private String mSlot;
-    private int mVisibleState = -1;
+    private int mVisibleState = STATE_HIDDEN;
     private boolean mShowWifiStandard;
     private WifiManager mWifiManager;
     @StatusBarIconView.VisibleState
-    private int mVisibleState = STATE_HIDDEN;
 
     public static StatusBarWifiView fromContext(Context context, String slot) {
         LayoutInflater inflater = LayoutInflater.from(context);
