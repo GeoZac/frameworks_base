@@ -12132,12 +12132,6 @@ public final class Settings {
         public static final String ENABLE_PROJECTION_PRIVACY_INDICATOR = "enable_projection_privacy_indicator";
 
         /**
-         * Wheter to show Wi-Fi standard icon
-         * @hide
-         */
-        public static final String SHOW_WIFI_STANDARD_ICON = "show_wifi_standard_icon";
-
-        /**
          * Boolean value whether to link ringtone and notification volume
          * @hide
          */
