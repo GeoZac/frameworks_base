@@ -45,7 +45,6 @@ import com.android.systemui.settings.brightness.BrightnessMirrorHandler;
 import com.android.systemui.settings.brightness.BrightnessSliderController;
 import com.android.systemui.statusbar.phone.StatusBarKeyguardViewManager;
 import com.android.systemui.statusbar.policy.BrightnessMirrorController;
-import com.android.systemui.tuner.TunerService;
 import com.android.systemui.util.settings.SystemSettings;
 
 import javax.inject.Inject;
@@ -76,7 +75,7 @@ public class QSPanelController extends QSPanelControllerBase<QSPanel> {
     };
 
     @Inject
-    QSPanelController(QSPanel view, TunerService tunerService,
+    QSPanelController(QSPanel view,
             QSTileHost qstileHost, QSCustomizerController qsCustomizerController,
             @Named(QS_USING_MEDIA_PLAYER) boolean usingMediaPlayer,
             @Named(QS_PANEL) MediaHost mediaHost,
@@ -90,7 +89,6 @@ public class QSPanelController extends QSPanelControllerBase<QSPanel> {
             @Main Handler mainHandler, SystemSettings systemSettings) {
         super(view, qstileHost, qsCustomizerController, usingMediaPlayer, mediaHost,
                 metricsLogger, uiEventLogger, qsLogger, dumpManager, mainHandler, systemSettings);
-        mTunerService = tunerService;
         mQsCustomizerController = qsCustomizerController;
         mQsTileRevealControllerFactory = qsTileRevealControllerFactory;
         mFalsingManager = falsingManager;
@@ -140,7 +138,6 @@ public class QSPanelController extends QSPanelControllerBase<QSPanel> {
 
     @Override
     protected void onViewDetached() {
-        mTunerService.removeTunable(mView);
         mBrightnessMirrorHandler.onQsPanelDettached();
         super.onViewDetached();
     }

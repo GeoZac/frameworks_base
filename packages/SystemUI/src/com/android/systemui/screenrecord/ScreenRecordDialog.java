@@ -179,15 +179,13 @@ public class ScreenRecordDialog extends SystemUIDialog {
      *                      null to record the whole screen
      */
     private void requestScreenCapture(@Nullable MediaProjectionCaptureTarget captureTarget) {
-        Context userContext = mUserContextProvider.getUserContext();
         savePrefs();
         boolean showTaps = mTapsSwitch.isChecked();
         boolean showStopDot = mStopDotSwitch.isChecked();
         boolean lowQuality = mLowQualitySwitch.isChecked();
         boolean longerDuration = mLongerSwitch.isChecked();
         ScreenRecordingAudioSource audioMode = mAudioSwitch.isChecked()
-                ? (ScreenRecordingAudioSource) mOptions.getSelectedItem()
-                : NONE;
+                ? (ScreenRecordingAudioSource) mOptions.getSelectedItem() : NONE;
         Context userContext = mUserContextProvider.getUserContext();
         PendingIntent startIntent = PendingIntent.getForegroundService(userContext,
                 RecordingService.REQUEST_CODE,

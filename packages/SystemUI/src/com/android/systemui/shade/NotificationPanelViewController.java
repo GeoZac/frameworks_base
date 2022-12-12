@@ -231,7 +231,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
-import java.util.concurrent.Executor;
 import java.util.function.Consumer;
 
 import javax.inject.Inject;
@@ -667,8 +666,6 @@ public final class NotificationPanelViewController extends PanelViewController {
 
     private int mOneFingerQuickSettingsIntercept;
     private int mQsSmartPullDown;
-
-    private final Executor mUiExecutor;
 
     private final KeyguardMediaController mKeyguardMediaController;
 
