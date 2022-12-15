@@ -471,7 +471,7 @@ public final class AutofillManagerService
             if (level == AutofillManager.FLAG_ADD_CLIENT_VERBOSE) {
                 debug = verbose = true;
             } else if (level == AutofillManager.FLAG_ADD_CLIENT_DEBUG) {
-                debug = true;
+                DEBUG = false;
             } else {
                 Slog.w(TAG,  "setLogLevelFromSettings(): invalid level: " + level);
             }
